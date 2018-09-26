@@ -29,3 +29,14 @@ func EncryptWithSalt(plainStr, salt string) (strEncrypt string)  {
     return
 }
 
+/**
+md5编码
+ */
+func Md5(plainStr string) (strEncrypt string) {
+    m5 := md5.New()
+    m5.Write([]byte(plainStr))
+    st := m5.Sum(nil)
+    strEncrypt = hex.EncodeToString(st)
+    return
+}
+
